@@ -28,6 +28,7 @@ function guessNumber() {
       highscore.textContent = highestScore;
       saveData();
     }
+    document.querySelector(".guess").value = "";
     setTimeout(resetGame, 2000);
   } else {
     feedback.textContent =
@@ -47,8 +48,8 @@ function resetGame() {
   initialScore = 20; // Reset score
   score.textContent = initialScore;
   feedback.textContent = "New game started! Guess again.";
-  body.style.backgroundColor = "  #f4f4f9"; // Reset background color
   feedback.style.color = "#333";
+  document.querySelector(".guess").value = "";
   getData();
 }
 
