@@ -28,6 +28,49 @@ function guessNumber() {
       highscore.textContent = highestScore;
       saveData();
     }
+
+    setTimeout(resetGame, 2000);
+    document.querySelector(".guess").value = "";
+  } else {
+    feedback.textContent =
+      guess > targetNumber ? "Sorry. Too high 📈." : "Sorry. Too low. 📉";
+    initialScore--;
+    score.textContent = initialScore;
+    document.querySelector(".guess").value = "";
+  }
+  if (initialScore === 0) {
+    feedback.textContent = "Game Over! Try again.";
+    feedback.style.color = "rgb(181, 35, 35)";
+    setTimeout(resetGame, 2000);
+  }
+}
+
+function resetGame() {
+  targetNumber = Math.floor(Math.random() * 10) + 1; // Generate new number
+  initialScore = 20; // Reset score
+  score.textContent = initialScore;
+  feedback.textContent = "New game started! Guess again.";
+  feedback.style.color = "#333";
+
+  document.querySelector(".guess").value = "";
+}
+
+function saveData() {
+  localStorage.setItem("data", highscore.innerHTML);
+}
+function getData() {
+  highscore.innerHTML = localStorage.getItem("data");
+}
+
+  if (guess === targetNumber) {
+    feedback.textContent = "Correct! You guessed right 🎉.";
+
+    if (highestScore < initialScore) {
+      highestScore = initialScore;
+
+      highscore.textContent = highestScore;
+      saveData();
+    }
     document.querySelector(".guess").value = "";
     setTimeout(resetGame, 2000);
   } else {
