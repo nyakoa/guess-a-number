@@ -13,7 +13,7 @@
       <p>We have selected a random number between 1 - 10.</p>
 
       <input type="text" class="guess" placeholder="Your guess" />
-      <button onclick="guessNumber()">Submit</button>
+      <button class="submit" onclick="guessNumber()">Submit</button>
 
       <p id="feedback"></p>
     </div>
@@ -23,6 +23,7 @@
         🥇 Highscore: <span class="highscore">0</span>
       </p>
     </div>
+    <button class="restart" onclick="resetGame()">Restart Game</button>
     <script src="script.js"></script>
   </body>
 </html>
